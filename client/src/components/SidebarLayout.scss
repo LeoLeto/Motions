@@ -13,17 +13,23 @@
     flex-direction     : column;
     align-items        : center;
     gap                : 1rem;
-    min-width          : 12rem;
-    padding-top        : 2rem;
+    width              : 12rem;
+    padding            : 2rem 1rem;
     // height          : 96vh;
     background-color   : #494949;
     color              : white;
     border-radius      : 1rem;
 }
 
+.orb {
+    margin-bottom: 4rem;
+    width        : 5rem;
+    height       : 5rem;
+}
+
 .logo {
-    width : 5rem;
-    height: 5rem;
+    width : 100%;
+    height: auto;
 }
 
 .mainCard {

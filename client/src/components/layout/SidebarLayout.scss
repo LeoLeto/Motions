@@ -33,8 +33,17 @@
 }
 
 .mainCard {
+    display         : flex;
+    flex-direction  : column;
+    flex            : 1;
+    gap             : 1rem;
     background-color: white;
     border-radius   : 1rem;
     padding         : 2rem 3rem;
-    flex            : 1;
+}
+
+.mainCard .title {
+    font-weight: 600;
+    color      : rgba(0, 0, 0, 0.84);
+    font-size  : 1.1rem;
 }

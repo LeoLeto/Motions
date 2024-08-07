@@ -2,12 +2,17 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import SidebarLayout from "./components/layout/SidebarLayout.tsx";
 import Login from "./components/login/Login.tsx";
 import "./index.scss";
-import SidebarLayout from "./components/layout/SidebarLayout.tsx";
 
 const router = createBrowserRouter([
+  { path: "*", element: <Navigate to="/dashboard" replace /> },
   {
     path: "/login",
     element: <Login />,

@@ -1,9 +1,9 @@
+import "./SidebarLayout.scss";
+import { useNavigate } from "react-router-dom";
 import { VideocamTwoTone } from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import orb from "../../assets/img/temp_orb.png";
 import logo from "../../assets/img/logo.png";
-import "../SidebarLayout.scss";
-import { useNavigate } from "react-router-dom";
 // interface SidebarLayoutProps {
 //   children: ReactNode;
 // }
@@ -34,7 +34,8 @@ export default function SidebarLayout() {
         </Button>
         <Button
           variant="text"
-          color="warning"
+          color="error"
+          size="small"
           style={{ marginTop: "auto" }}
           onClick={handleLogout}
         >
@@ -43,8 +44,8 @@ export default function SidebarLayout() {
         <img src={logo} className="logo" />
       </div>
       <div className="mainCard">
-        <div>Continúa donde lo dejaste</div>
-        <div>Crea un nuevo video</div>
+        <div className="title">Continúa donde lo dejaste</div>
+        <div className="title">Crea un nuevo video</div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { VideocamTwoTone } from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import orb from "../../assets/img/temp_orb.png";
 import logo from "../../assets/img/logo.png";
+import DashboardOptionCard from "../DashboardOptionCard/DashboardOptionCard";
 // interface SidebarLayoutProps {
 //   children: ReactNode;
 // }
@@ -45,6 +46,7 @@ export default function SidebarLayout() {
       </div>
       <div className="mainCard">
         <div className="title">Continúa donde lo dejaste</div>
+        <DashboardOptionCard />
         <div className="title">Crea un nuevo video</div>
       </div>
     </div>

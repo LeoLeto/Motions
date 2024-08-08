@@ -1,6 +1,7 @@
 .dashboardOptionCard {
     display       : flex;
     flex-direction: column;
+    gap           : .3rem;
     background    : rgb(160, 133, 236);
     background    : linear-gradient(90deg, rgba(160, 133, 236, 1) 0%, rgba(207, 210, 229, 1) 100%);
     width         : 18rem;

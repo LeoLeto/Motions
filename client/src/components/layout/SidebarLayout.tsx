@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import orb from "../../assets/img/temp_orb.png";
 import logo from "../../assets/img/logo.png";
 import DashboardOptionCard from "../DashboardOptionCard/DashboardOptionCard";
+import SimpleDialogDemo from "../NewVideoModal/NewVideoModal";
 // interface SidebarLayoutProps {
 //   children: ReactNode;
 // }
@@ -48,6 +49,9 @@ export default function SidebarLayout() {
         <div className="title">Continúa donde lo dejaste</div>
         <DashboardOptionCard />
         <div className="title">Crea un nuevo video</div>
+        <DashboardOptionCard />
+
+        <SimpleDialogDemo />
       </div>
     </div>
   );

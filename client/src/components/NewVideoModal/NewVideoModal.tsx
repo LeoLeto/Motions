@@ -1,17 +1,8 @@
-import * as React from "react";
+import { Paper, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import PersonIcon from "@mui/icons-material/Person";
-import AddIcon from "@mui/icons-material/Add";
-import Typography from "@mui/material/Typography";
-import { blue } from "@mui/material/colors";
+import * as React from "react";
+import "./NewVideoModal.css";
 
 const emails = ["username@gmail.com", "user02@gmail.com"];
 
@@ -28,47 +19,45 @@ function SimpleDialog(props: SimpleDialogProps) {
     onClose(selectedValue);
   };
 
-  const handleListItemClick = (value: string) => {
-    onClose(value);
-  };
-
   return (
     <Dialog
+      fullWidth={true}
       sx={{
         backdropFilter: "blur(8px)",
-        //other styles here
       }}
       onClose={handleClose}
       open={open}
     >
-      <DialogTitle>Set backup account</DialogTitle>
-      <List sx={{ pt: 0 }}>
-        {emails.map((email) => (
-          <ListItem disableGutters key={email}>
-            <ListItemButton onClick={() => handleListItemClick(email)}>
-              <ListItemAvatar>
-                <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                  <PersonIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={email} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-        <ListItem disableGutters>
-          <ListItemButton
-            autoFocus
-            onClick={() => handleListItemClick("addAccount")}
-          >
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Add account" />
-          </ListItemButton>
-        </ListItem>
-      </List>
+      <div className="dialogContainer">
+        <div className="dialogTitle">Crear un video de E-learning</div>
+        <div className="wizardStepCounter" style={{ textAlign: "center" }}>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+        </div>
+
+        <Paper elevation={3} square={false}>
+          <div className="paperContainer">
+            <p className="paperTitle">Escribe el nombre del curso</p>
+            <TextField
+              focused
+              id="outlined-basic"
+              variant="outlined"
+              fullWidth={true}
+              color="secondary"
+              multiline
+              rows={3}
+            />
+          </div>
+        </Paper>
+        <span style={{ marginLeft: "auto" }}>
+          <Button color="secondary" size="small">
+            Continuar
+          </Button>
+        </span>
+      </div>
     </Dialog>
   );
 }
@@ -88,9 +77,6 @@ export default function SimpleDialogDemo() {
 
   return (
     <div>
-      <Typography variant="subtitle1" component="div">
-        Selected: {selectedValue}
-      </Typography>
       <br />
       <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
         Open simple dialog

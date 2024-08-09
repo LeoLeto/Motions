@@ -1,0 +1,43 @@
+.dialogContainer {
+    display       : flex;
+    flex-direction: column;
+    gap           : 1.2rem;
+    padding       : 2rem;
+}
+
+
+.paperContainer {
+    padding: 1rem;
+}
+
+.paperTitle {
+    text-align   : center;
+    font-weight  : 500;
+    margin-bottom: 1rem;
+}
+
+.dialogTitle {
+    font-size  : 1.2rem;
+    font-weight: 600;
+    text-align : center;
+}
+
+.wizardStepCounter {
+    display              : flex;
+    gap                  : 1rem;
+    /* width             : 40rem; */
+    /* margin            : 0 1rem 2rem 1rem; */
+    justify-content      : space-around;
+}
+
+.wizardStepCounter span {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    background-color: #a085ec;
+    color           : white;
+    width           : 2rem;
+    height          : 2rem;
+    border-radius   : 2rem;
+    font-weight     : 600;
+}

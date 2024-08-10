@@ -36,7 +36,7 @@ export default function SidebarLayout() {
         </Button>
         <Button
           variant="text"
-          color="error"
+          // color="error"
           size="small"
           style={{ marginTop: "auto" }}
           onClick={handleLogout}

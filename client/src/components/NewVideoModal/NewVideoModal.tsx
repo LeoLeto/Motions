@@ -1,8 +1,9 @@
 import { Paper, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import * as React from "react";
 import "./NewVideoModal.css";
+import { useState } from "react";
+import { AutoFixHighTwoTone } from "@mui/icons-material";
 
 const emails = ["username@gmail.com", "user02@gmail.com"];
 
@@ -14,6 +15,7 @@ export interface SimpleDialogProps {
 
 function SimpleDialog(props: SimpleDialogProps) {
   const { onClose, selectedValue, open } = props;
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
   const handleClose = () => {
     onClose(selectedValue);
@@ -38,22 +40,75 @@ function SimpleDialog(props: SimpleDialogProps) {
           <span>5</span>
         </div>
 
-        <Paper elevation={3} square={false}>
-          <div className="paperContainer">
-            <p className="paperTitle">Escribe el nombre del curso</p>
-            <TextField
-              focused
-              id="outlined-basic"
-              variant="outlined"
-              fullWidth={true}
-              color="secondary"
-              multiline
-              rows={3}
-            />
-          </div>
-        </Paper>
+        {currentStep === 1 && (
+          <Paper elevation={3} square={false}>
+            <div className="paperContainer">
+              <p className="paperTitle">Escribe el nombre del curso</p>
+              <TextField
+                focused
+                id="outlined-basic"
+                variant="outlined"
+                fullWidth={true}
+                color="secondary"
+                multiline
+                rows={3}
+                placeholder="Ejemplo: La inteligencia artificial"
+              />
+            </div>
+          </Paper>
+        )}
+        {currentStep === 2 && (
+          <Paper elevation={3} square={false}>
+            <div className="paperContainer">
+              <p className="paperTitle">
+                Describe brevemente de qué trata el curso
+              </p>
+              <TextField
+                focused
+                id="outlined-basic"
+                variant="outlined"
+                fullWidth={true}
+                color="secondary"
+                multiline
+                rows={3}
+                placeholder="Ejemplo: La inteligencia artificial como herramienta de trabajo para la optimización de procesos en empresas"
+              />
+            </div>
+            <Button
+              color="info"
+              variant="contained"
+              startIcon={<AutoFixHighTwoTone />}
+            >
+              Generar con inteligencia artificial
+            </Button>
+          </Paper>
+        )}
+        {currentStep === 3 && (
+          <Paper elevation={3} square={false}>
+            <div className="paperContainer">
+              <p className="paperTitle">
+                Describe para quién está dirigido el curso
+              </p>
+              <TextField
+                focused
+                id="outlined-basic"
+                variant="outlined"
+                fullWidth={true}
+                color="secondary"
+                multiline
+                rows={3}
+                placeholder="Ejemplo: Jóvenes con conocimientos básicos en el tema"
+              />
+            </div>
+          </Paper>
+        )}
+
         <span style={{ marginLeft: "auto" }}>
-          <Button color="secondary" size="small">
+          <Button
+            color="secondary"
+            size="small"
+            onClick={() => setCurrentStep(currentStep + 1)}
+          >
             Continuar
           </Button>
         </span>
@@ -63,8 +118,8 @@ function SimpleDialog(props: SimpleDialogProps) {
 }
 
 export default function SimpleDialogDemo() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(emails[1]);
 
   const handleClickOpen = () => {
     setOpen(true);

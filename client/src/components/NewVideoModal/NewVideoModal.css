@@ -22,6 +22,11 @@
     text-align : center;
 }
 
+.dialogButtons {
+    display        : flex;
+    justify-content: space-between;
+}
+
 .wizardStepCounter {
     display              : flex;
     gap                  : 1rem;
@@ -40,4 +45,26 @@
     height          : 2rem;
     border-radius   : 2rem;
     font-weight     : 600;
+}
+
+.createCourseOptionsContainer {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    gap            : 1rem;
+}
+
+.createCourseOption {
+    border: 1px solid#a085ec;
+    flex  : 1;
+}
+
+.createCourseOption .optionHeader {
+    background-color: #a085ec;
+    color           : white;
+    text-align      : center;
+}
+
+.createCourseOption p {
+    padding: 1rem;
 }

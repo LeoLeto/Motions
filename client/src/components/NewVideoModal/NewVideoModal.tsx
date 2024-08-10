@@ -100,18 +100,56 @@ function SimpleDialog(props: SimpleDialogProps) {
                 placeholder="Ejemplo: Jóvenes con conocimientos básicos en el tema"
               />
             </div>
+            <Button
+              color="info"
+              variant="contained"
+              startIcon={<AutoFixHighTwoTone />}
+            >
+              Ver ejemplos
+            </Button>
           </Paper>
         )}
 
-        <span style={{ marginLeft: "auto" }}>
+        {currentStep === 4 && (
+          <Paper elevation={3} square={false}>
+            <div className="paperContainer">
+              <p className="paperTitle">Escoge cómo crear el curso</p>
+              <div className="createCourseOptionsContainer">
+                <span className="createCourseOption">
+                  <div className="optionHeader">Documentos</div>
+                  <p>Crea un curso basado en archivos word, PDF, PowerPoint, etc.</p>
+                </span>
+                <span className="createCourseOption">
+                  <div className="optionHeader">Inteligencia Artificial</div>
+                  <p>Crea un curso con inteligencia artificial...</p>
+                </span>
+                <span className="createCourseOption">
+                  <div className="optionHeader">Manual</div>
+                  <p>Crea un curso manualmente...</p>
+                </span>
+              </div>
+            </div>
+          </Paper>
+        )}
+
+        <div className="dialogButtons">
           <Button
             color="secondary"
             size="small"
-            onClick={() => setCurrentStep(currentStep + 1)}
+            onClick={() => setCurrentStep(currentStep - 1)}
           >
-            Continuar
+            Regresar
           </Button>
-        </span>
+          <span style={{ marginLeft: "auto" }}>
+            <Button
+              color="secondary"
+              size="small"
+              onClick={() => setCurrentStep(currentStep + 1)}
+            >
+              Continuar
+            </Button>
+          </span>
+        </div>
       </div>
     </Dialog>
   );

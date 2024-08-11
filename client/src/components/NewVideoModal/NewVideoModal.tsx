@@ -19,11 +19,14 @@ function SimpleDialog(props: SimpleDialogProps) {
 
   const handleClose = () => {
     onClose(selectedValue);
+    setCurrentStep(1);
   };
 
   return (
     <Dialog
-      fullWidth={true}
+      // fullWidth={true}
+      // fullWidth={true}
+      maxWidth={"lg"}
       sx={{
         backdropFilter: "blur(8px)",
       }}
@@ -34,10 +37,10 @@ function SimpleDialog(props: SimpleDialogProps) {
         <div className="dialogTitle">Crear un video de E-learning</div>
         <div className="wizardStepCounter" style={{ textAlign: "center" }}>
           <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-          <span>5</span>
+          <span style={currentStep > 1 ? {} : { opacity: ".49" }}>2</span>
+          <span style={currentStep > 2 ? {} : { opacity: ".49" }}>3</span>
+          <span style={currentStep > 3 ? {} : { opacity: ".49" }}>4</span>
+          <span style={currentStep > 4 ? {} : { opacity: ".49" }}>5</span>
         </div>
 
         {currentStep === 1 && (
@@ -73,14 +76,17 @@ function SimpleDialog(props: SimpleDialogProps) {
                 rows={3}
                 placeholder="Ejemplo: La inteligencia artificial como herramienta de trabajo para la optimización de procesos en empresas"
               />
+
+              <span style={{ marginLeft: "auto" }}>
+                <Button
+                  color="info"
+                  variant="contained"
+                  startIcon={<AutoFixHighTwoTone />}
+                >
+                  Generar con inteligencia artificial
+                </Button>
+              </span>
             </div>
-            <Button
-              color="info"
-              variant="contained"
-              startIcon={<AutoFixHighTwoTone />}
-            >
-              Generar con inteligencia artificial
-            </Button>
           </Paper>
         )}
         {currentStep === 3 && (
@@ -99,14 +105,16 @@ function SimpleDialog(props: SimpleDialogProps) {
                 rows={3}
                 placeholder="Ejemplo: Jóvenes con conocimientos básicos en el tema"
               />
+              <span style={{ marginLeft: "auto" }}>
+                <Button
+                  color="info"
+                  variant="contained"
+                  startIcon={<AutoFixHighTwoTone />}
+                >
+                  Ver ejemplos
+                </Button>
+              </span>
             </div>
-            <Button
-              color="info"
-              variant="contained"
-              startIcon={<AutoFixHighTwoTone />}
-            >
-              Ver ejemplos
-            </Button>
           </Paper>
         )}
 
@@ -117,38 +125,172 @@ function SimpleDialog(props: SimpleDialogProps) {
               <div className="createCourseOptionsContainer">
                 <span className="createCourseOption">
                   <div className="optionHeader">Documentos</div>
-                  <p>Crea un curso basado en archivos word, PDF, PowerPoint, etc.</p>
+                  <div className="optionBody">
+                    <p>
+                      Crea un curso basado en archivos word, PDF, PowerPoint,
+                      etc.
+                    </p>
+                    <Button
+                      color="info"
+                      variant="contained"
+                      startIcon={<AutoFixHighTwoTone />}
+                    >
+                      Ver ejemplos
+                    </Button>
+                    <Button
+                      color="info"
+                      variant="contained"
+                      startIcon={<AutoFixHighTwoTone />}
+                    >
+                      Ver ejemplos
+                    </Button>
+                  </div>
                 </span>
                 <span className="createCourseOption">
                   <div className="optionHeader">Inteligencia Artificial</div>
-                  <p>Crea un curso con inteligencia artificial...</p>
+                  <div className="optionBody">
+                    <p>Crea un curso con inteligencia artificial...</p>
+                    <div style={{ marginTop: "auto" }}></div>
+                    <Button
+                      color="info"
+                      variant="contained"
+                      startIcon={<AutoFixHighTwoTone />}
+                    >
+                      Ver ejemplos
+                    </Button>
+                  </div>
                 </span>
                 <span className="createCourseOption">
                   <div className="optionHeader">Manual</div>
-                  <p>Crea un curso manualmente...</p>
+                  <div className="optionBody">
+                    <p>Crea un curso manualmente...</p>{" "}
+                    <span style={{ marginTop: "auto", marginLeft: "auto" }}>
+                      <Button
+                        color="info"
+                        variant="contained"
+                        startIcon={<AutoFixHighTwoTone />}
+                      >
+                        Test
+                      </Button>
+                    </span>
+                  </div>
                 </span>
               </div>
             </div>
           </Paper>
         )}
 
+        {currentStep === 5 && (
+          <>
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <span
+                className="createCourseOptionsContainer"
+                style={{ flex: 1 }}
+              >
+                <span
+                  className="createCourseOption"
+                  style={{ minWidth: "21rem" }}
+                >
+                  <div className="optionHeader">Tabla de contenidos</div>
+                  <div
+                    className="optionBody"
+                    style={{ maxHeight: "21rem", overflowY: "auto" }}
+                  >
+                    <p style={{ fontWeight: "600" }}>1 - Introducción</p>
+                    <p style={{ marginLeft: "1.4rem" }}>
+                      Introducción a la inteligencia artificial
+                    </p>
+                    <p style={{ marginLeft: "1.4rem" }}>
+                      Machine learning e inteligencia artificial
+                    </p>
+                    <p style={{ fontWeight: "600" }}>
+                      2- Optimización de procesos
+                    </p>
+                    <p style={{ marginLeft: "1.4rem" }}>
+                      Optimización de procesos empresariales
+                    </p>
+                    <p style={{ marginLeft: "1.4rem" }}>Plan de ataque</p>
+                    <p style={{ marginLeft: "1.4rem" }}>
+                      Reinforcement learning
+                    </p>
+                    <p style={{ marginLeft: "1.4rem" }}>Q-learning</p>
+                    <p style={{ fontWeight: "600" }}>
+                      3 - Minimización de costos
+                    </p>
+                    <p style={{ marginLeft: "1.4rem" }}>Deep Q-learning</p>
+                    <p style={{ marginLeft: "1.4rem" }}>Experience replay</p>
+                    <p style={{ fontWeight: "600" }}>
+                      4 - Maximización de beneficios
+                    </p>
+                    <p style={{ marginLeft: "1.4rem" }}>Bandido multibrazos</p>
+                    <p style={{ marginLeft: "1.4rem" }}>Muestreo Thompson</p>
+                  </div>
+                </span>
+              </span>
+              <span style={{ flex: 2 }}>
+                <Paper elevation={3} square={false}>
+                  <div className="paperContainer" style={{ gap: "0" }}>
+                    <p className="paperTitle">Opciones de creación</p>
+                    <div className="gridLayout">
+                      <span className="createCourseOption">
+                        <div className="optionBody purpleTitle">
+                          Número de módulos
+                        </div>
+                      </span>
+                      <span className="createCourseOption">
+                        <div className="optionBody purpleTitle">
+                          Estilo de salida
+                        </div>
+                      </span>
+                      <span className="createCourseOption">
+                        <div className="optionBody purpleTitle">
+                          Número de módulos
+                        </div>
+                      </span>
+                      <span className="createCourseOption">
+                        <div className="optionBody purpleTitle">
+                          Número de módulos
+                        </div>
+                      </span>
+                      <span className="createCourseOption">
+                        <div className="optionBody purpleTitle">
+                          Número de módulos
+                        </div>
+                      </span>
+                      <span className="createCourseOption">
+                        <div className="optionBody purpleTitle">
+                          Número de módulos
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </Paper>
+              </span>
+            </div>
+          </>
+        )}
+
         <div className="dialogButtons">
-          <Button
-            color="secondary"
-            size="small"
-            onClick={() => setCurrentStep(currentStep - 1)}
-          >
-            Regresar
-          </Button>
-          <span style={{ marginLeft: "auto" }}>
+          {currentStep > 1 && (
             <Button
               color="secondary"
               size="small"
-              onClick={() => setCurrentStep(currentStep + 1)}
+              onClick={() => setCurrentStep(currentStep - 1)}
             >
-              Continuar
+              Regresar
             </Button>
-          </span>
+          )}
+          {currentStep < 5 && (
+            <span style={{ marginLeft: "auto" }}>
+              <Button
+                color="secondary"
+                size="small"
+                onClick={() => setCurrentStep(currentStep + 1)}
+              >
+                Continuar
+              </Button>
+            </span>
+          )}
         </div>
       </div>
     </Dialog>

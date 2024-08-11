@@ -10,9 +10,11 @@ export default function Login() {
 
   return (
     <>
-      <Button variant="contained" onClick={handleLogin}>
-        Login
-      </Button>
+      <span className="centerAbsolutely">
+        <Button variant="contained" onClick={handleLogin}>
+          Entrar
+        </Button>
+      </span>
     </>
   );
 }

@@ -7,7 +7,10 @@
 
 
 .paperContainer {
-    padding: 1rem;
+    display       : flex;
+    flex-direction: column;
+    gap           : 1rem;
+    padding       : 1rem;
 }
 
 .paperTitle {
@@ -30,8 +33,9 @@
 .wizardStepCounter {
     display              : flex;
     gap                  : 1rem;
-    /* width             : 40rem; */
+    min-width            : 35rem;
     /* margin            : 0 1rem 2rem 1rem; */
+    margin-bottom        : 1rem;
     justify-content      : space-around;
 }
 
@@ -51,20 +55,48 @@
     display        : flex;
     flex-direction : row;
     justify-content: space-between;
-    gap            : 1rem;
+    gap            : 1.4rem;
 }
 
 .createCourseOption {
-    border: 1px solid#a085ec;
-    flex  : 1;
+    display       : flex;
+    flex-direction: column;
+    border        : 2px solid#a085ec;
+    border-radius : 21px;
+    flex          : 1;
+    max-width     : 16rem;
 }
 
 .createCourseOption .optionHeader {
-    background-color: #a085ec;
-    color           : white;
-    text-align      : center;
+    background-color       : #a085ec;
+    color                  : white;
+    border-top-left-radius : 1rem;
+    border-top-right-radius: 1rem;
+    text-align             : center;
+    padding                : .7rem;
 }
 
-.createCourseOption p {
-    padding: 1rem;
+.createCourseOption .optionBody {
+    display       : flex;
+    flex-direction: column;
+    gap           : 1rem;
+    padding       : 1rem;
+    height        : 100%;
+}
+
+.optionBody.purpleTitle {
+    color      : #a085ec;
+    font-weight: 600;
+    text-wrap  : nowrap;
+}
+
+.createCourseOption .optionBody p {
+    margin-bottom: auto;
+}
+
+.gridLayout {
+    display              : grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows   : repeat(3, 1fr);
+    gap                  : 1rem;
 }

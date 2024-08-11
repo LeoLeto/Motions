@@ -1,9 +1,9 @@
-import { Paper, TextField } from "@mui/material";
+import { AutoFixHighTwoTone } from "@mui/icons-material";
+import { MenuItem, Paper, Select, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import "./NewVideoModal.css";
 import { useState } from "react";
-import { AutoFixHighTwoTone } from "@mui/icons-material";
+import "./NewVideoModal.css";
 
 const emails = ["username@gmail.com", "user02@gmail.com"];
 
@@ -241,25 +241,59 @@ function SimpleDialog(props: SimpleDialogProps) {
                         <div className="optionBody purpleTitle">
                           Estilo de salida
                         </div>
-                      </span>
-                      <span className="createCourseOption">
-                        <div className="optionBody purpleTitle">
-                          Número de módulos
+                        <div className="optionBody">
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value="10"
+                            // label="Age"
+                            color="info"
+                            // onChange={handleChange}
+                          >
+                            <MenuItem value={10}>Motion graphics</MenuItem>
+                          </Select>
                         </div>
                       </span>
                       <span className="createCourseOption">
                         <div className="optionBody purpleTitle">
-                          Número de módulos
+                          Idioma y voz
+                        </div>
+                        <div className="optionBody">
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value="10"
+                            // label="Age"
+                            color="info"
+                            // onChange={handleChange}
+                          >
+                            <MenuItem value={10}>Motion graphics</MenuItem>
+                          </Select>
                         </div>
                       </span>
                       <span className="createCourseOption">
                         <div className="optionBody purpleTitle">
-                          Número de módulos
+                          Música de fondo
+                        </div>
+                        <div className="optionBody">
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value="10"
+                            // label="Age"
+                            color="info"
+                            // onChange={handleChange}
+                          >
+                            <MenuItem value={10}>Motion graphics</MenuItem>
+                          </Select>
                         </div>
                       </span>
                       <span className="createCourseOption">
+                        <div className="optionBody purpleTitle">Logo</div>
+                      </span>
+                      <span className="createCourseOption">
                         <div className="optionBody purpleTitle">
-                          Número de módulos
+                          Evaluaciones
                         </div>
                       </span>
                     </div>

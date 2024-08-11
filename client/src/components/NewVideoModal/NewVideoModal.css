@@ -100,3 +100,7 @@
     grid-template-rows   : repeat(3, 1fr);
     gap                  : 1rem;
 }
+
+.gridLayout span {
+    min-width: 16rem;
+}

@@ -85,9 +85,10 @@
 }
 
 .optionBody.purpleTitle {
-    color      : #a085ec;
-    font-weight: 600;
-    text-wrap  : nowrap;
+    color        : #a085ec;
+    font-weight  : 600;
+    text-wrap    : nowrap;
+    margin-bottom: 1rem;
 }
 
 .createCourseOption .optionBody p {
@@ -101,6 +102,11 @@
     gap                  : 1rem;
 }
 
-.gridLayout span {
-    min-width: 16rem;
+.gridLayout .createCourseOption {
+    padding: 1rem;
+}
+
+.gridLayout .optionBody {
+    /* min-width: 16rem; */
+    padding: unset;
 }

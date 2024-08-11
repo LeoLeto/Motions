@@ -1,5 +1,13 @@
 import { AutoFixHighTwoTone } from "@mui/icons-material";
-import { MenuItem, Paper, Select, TextField } from "@mui/material";
+import {
+  Checkbox,
+  FormControlLabel,
+  MenuItem,
+  Paper,
+  Select,
+  Slider,
+  TextField,
+} from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import { useState } from "react";
@@ -194,7 +202,7 @@ function SimpleDialog(props: SimpleDialogProps) {
                   <div className="optionHeader">Tabla de contenidos</div>
                   <div
                     className="optionBody"
-                    style={{ maxHeight: "21rem", overflowY: "auto" }}
+                    style={{ maxHeight: "27rem", overflowY: "auto" }}
                   >
                     <p style={{ fontWeight: "600" }}>1 - Introducción</p>
                     <p style={{ marginLeft: "1.4rem" }}>
@@ -235,6 +243,16 @@ function SimpleDialog(props: SimpleDialogProps) {
                       <span className="createCourseOption">
                         <div className="optionBody purpleTitle">
                           Número de módulos
+                        </div>
+                        <div className="optionBody">
+                          <Slider
+                            aria-label="Temperature"
+                            defaultValue={7}
+                            color="secondary"
+                            valueLabelDisplay="on"
+                            min={5}
+                            max={20}
+                          />
                         </div>
                       </span>
                       <span className="createCourseOption">
@@ -290,10 +308,26 @@ function SimpleDialog(props: SimpleDialogProps) {
                       </span>
                       <span className="createCourseOption">
                         <div className="optionBody purpleTitle">Logo</div>
+                        <div className="optionBody">
+                          <FormControlLabel
+                            control={
+                              <Checkbox defaultChecked color="secondary" />
+                            }
+                            label="Incluir logo en el vídeo"
+                          />
+                        </div>
                       </span>
                       <span className="createCourseOption">
                         <div className="optionBody purpleTitle">
                           Evaluaciones
+                        </div>
+                        <div className="optionBody">
+                          <FormControlLabel
+                            control={
+                              <Checkbox defaultChecked color="secondary" />
+                            }
+                            label="Crear evaluaciones con IA"
+                          />
                         </div>
                       </span>
                     </div>

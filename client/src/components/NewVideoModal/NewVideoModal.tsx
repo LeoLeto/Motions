@@ -382,7 +382,7 @@ export default function SimpleDialogDemo() {
     <div>
       <br />
       <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
-        Open simple dialog
+        Temporary modal trigger
       </Button>
       <SimpleDialog
         selectedValue={selectedValue}

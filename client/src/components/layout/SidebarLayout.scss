@@ -47,3 +47,9 @@
     color      : rgba(0, 0, 0, 0.84);
     font-size  : 1.1rem;
 }
+
+.newVideoOptionsContainer {
+    display  : flex;
+    flex-wrap: wrap;
+    gap      : 2rem;
+}

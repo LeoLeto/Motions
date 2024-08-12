@@ -10,6 +10,27 @@ import SimpleDialogDemo from "../NewVideoModal/NewVideoModal";
 //   children: ReactNode;
 // }
 
+const newVideoOptions = [
+  {
+    title: "YouTube",
+  },
+  {
+    title: "Instagram / Facebook",
+  },
+  {
+    title: "TikTok",
+  },
+  {
+    title: "E-learning",
+  },
+  {
+    title: "E-commerce",
+  },
+  {
+    title: "Intros",
+  },
+];
+
 export default function SidebarLayout() {
   const navigate = useNavigate();
 
@@ -47,9 +68,19 @@ export default function SidebarLayout() {
       </div>
       <div className="mainCard">
         <div className="title">Continúa donde lo dejaste</div>
-        <DashboardOptionCard />
+        <DashboardOptionCard isNewVideoOption={false} type="E-learning" />
         <div className="title">Crea un nuevo video</div>
-        <DashboardOptionCard />
+        <div className="newVideoOptionsContainer">
+          {newVideoOptions.map((option) => {
+            return (
+              <DashboardOptionCard
+                key={option.title}
+                isNewVideoOption={true}
+                type={option.title}
+              />
+            );
+          })}
+        </div>
 
         <SimpleDialogDemo />
       </div>

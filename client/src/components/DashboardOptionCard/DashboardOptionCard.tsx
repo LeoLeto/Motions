@@ -3,14 +3,16 @@ import "./DashboardOptionCard.css";
 interface DashboardOptionCardProps {
   isNewVideoOption: boolean;
   type: string;
+  handleClickDashboardOption: () => void;
 }
 
 export default function DashboardOptionCard({
   isNewVideoOption,
   type,
+  handleClickDashboardOption,
 }: DashboardOptionCardProps) {
   return (
-    <div className="dashboardOptionCard">
+    <div className="dashboardOptionCard" onClick={handleClickDashboardOption}>
       {isNewVideoOption && (
         <>
           <div>{type}</div>

@@ -1,3 +1,4 @@
+import "./NewVideoModal.css";
 import { AutoFixHighTwoTone } from "@mui/icons-material";
 import {
   Checkbox,
@@ -11,22 +12,17 @@ import {
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import { useState } from "react";
-import "./NewVideoModal.css";
-
-const emails = ["username@gmail.com", "user02@gmail.com"];
 
 export interface SimpleDialogProps {
-  open: boolean;
-  selectedValue: string;
+  isDialogOpen: boolean;
   onClose: (value: string) => void;
 }
 
-function SimpleDialog(props: SimpleDialogProps) {
-  const { onClose, selectedValue, open } = props;
+function SimpleDialog({ isDialogOpen, onClose }: SimpleDialogProps) {
   const [currentStep, setCurrentStep] = useState<number>(1);
 
   const handleClose = () => {
-    onClose(selectedValue);
+    onClose("selectedValue");
     setCurrentStep(1);
   };
 
@@ -39,7 +35,7 @@ function SimpleDialog(props: SimpleDialogProps) {
         backdropFilter: "blur(8px)",
       }}
       onClose={handleClose}
-      open={open}
+      open={isDialogOpen}
     >
       <div className="dialogContainer">
         <div className="dialogTitle">Crear un video de E-learning</div>
@@ -365,17 +361,23 @@ function SimpleDialog(props: SimpleDialogProps) {
   );
 }
 
-export default function SimpleDialogDemo() {
-  const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(emails[1]);
+interface DashboardDialogProps {
+  isDialogOpen: boolean;
+  setIsDialogOpen: (value: boolean) => void;
+}
+
+export default function SimpleDialogDemo({
+  isDialogOpen,
+  setIsDialogOpen,
+}: DashboardDialogProps) {
+  // const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setIsDialogOpen(true);
   };
 
-  const handleClose = (value: string) => {
-    setOpen(false);
-    setSelectedValue(value);
+  const handleClose = () => {
+    setIsDialogOpen(false);
   };
 
   return (
@@ -384,11 +386,7 @@ export default function SimpleDialogDemo() {
       <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
         Temporary modal trigger
       </Button>
-      <SimpleDialog
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
+      <SimpleDialog isDialogOpen={isDialogOpen} onClose={handleClose} />
     </div>
   );
 }

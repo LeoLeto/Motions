@@ -6,6 +6,7 @@ import orb from "../../assets/img/temp_orb.png";
 import logo from "../../assets/img/logo.png";
 import DashboardOptionCard from "../DashboardOptionCard/DashboardOptionCard";
 import SimpleDialogDemo from "../NewVideoModal/NewVideoModal";
+import { useState } from "react";
 // interface SidebarLayoutProps {
 //   children: ReactNode;
 // }
@@ -32,7 +33,13 @@ const newVideoOptions = [
 ];
 
 export default function SidebarLayout() {
+  const [openDialog, setOpenDialog] = useState(false);
+
   const navigate = useNavigate();
+
+  function handleClickDashboardOption() {
+    console.log("Clicked");
+  }
 
   function handleLogout() {
     navigate("/login");
@@ -68,7 +75,11 @@ export default function SidebarLayout() {
       </div>
       <div className="mainCard">
         <div className="title">Continúa donde lo dejaste</div>
-        <DashboardOptionCard isNewVideoOption={false} type="E-learning" />
+        <DashboardOptionCard
+          isNewVideoOption={false}
+          type="E-learning"
+          handleClickDashboardOption={handleClickDashboardOption}
+        />
         <div className="title">Crea un nuevo video</div>
         <div className="newVideoOptionsContainer">
           {newVideoOptions.map((option) => {
@@ -77,6 +88,7 @@ export default function SidebarLayout() {
                 key={option.title}
                 isNewVideoOption={true}
                 type={option.title}
+                handleClickDashboardOption={handleClickDashboardOption}
               />
             );
           })}

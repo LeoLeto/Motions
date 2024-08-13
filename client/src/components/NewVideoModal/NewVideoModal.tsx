@@ -370,23 +370,9 @@ export default function SimpleDialogDemo({
   isDialogOpen,
   setIsDialogOpen,
 }: DashboardDialogProps) {
-  // const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setIsDialogOpen(true);
-  };
-
   const handleClose = () => {
     setIsDialogOpen(false);
   };
 
-  return (
-    <div>
-      <br />
-      <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
-        Temporary modal trigger
-      </Button>
-      <SimpleDialog isDialogOpen={isDialogOpen} onClose={handleClose} />
-    </div>
-  );
+  return <SimpleDialog isDialogOpen={isDialogOpen} onClose={handleClose} />;
 }

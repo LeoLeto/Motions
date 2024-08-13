@@ -33,12 +33,13 @@ const newVideoOptions = [
 ];
 
 export default function SidebarLayout() {
-  const [openDialog, setOpenDialog] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const navigate = useNavigate();
 
   function handleClickDashboardOption() {
     console.log("Clicked");
+    setIsDialogOpen(true);
   }
 
   function handleLogout() {
@@ -94,7 +95,10 @@ export default function SidebarLayout() {
           })}
         </div>
 
-        <SimpleDialogDemo />
+        <SimpleDialogDemo
+          isDialogOpen={isDialogOpen}
+          setIsDialogOpen={setIsDialogOpen}
+        />
       </div>
     </div>
   );
